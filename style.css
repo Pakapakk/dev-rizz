@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+html{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    background: #0b1522;
+}
+
+.container{
+    width: 400px;
+    height: 605px;
+    background: azure;
+    padding: 55px 32px;
+    border-radius: 18px;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.ask {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ask .header {
+    justify-content: center;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ask .object{
+    padding-top: 85px;
+    margin-bottom: 75px;
+}
+
+.heart{
+    height: 130px;
+    width: 130px;
+    top: 0;
+    background: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 80px #f20044;
+    animation: heart 0.75s linear infinite;
+}
+
+@keyframes heart{
+    0%{
+        transform: rotate(-45deg) scale(1.07);
+    }
+    100%{
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100%{
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+
+.heart:before{
+    content: '';
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    background: #f20044;
+    top: -50%;
+    left: 0;
+    border-radius: 110px;
+    box-shadow: -10px -10px 80px #f20044;
+}
+
+.heart:after{
+    content: '';
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    background: #f20044;
+    left: 50%;
+    top: 0;
+    border-radius: 110px;
+    box-shadow: -10px -10px 80px #f20044;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button-group .button-yes,
+.button-group .button-no {
+    display: inline-block;
+    padding: 12px 45px;
+    margin: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    background: #0b1522;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+}
+
+.button-group .button-no{
+    position: absolute;
+    color: #0b1522;
+    background: #fff;
+    outline:#0b1522;
+    margin-left: 170px;
+}
+
+.button-group .button-yes{
+    position: absolute;
+    margin-left: -150px;
+}
+
+.button-group .button-yes span,
+.button-group .button-no span{
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background: #f20044;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: blink 0.9s linear infinite;
+}
+
+@keyframes blink{
+    0%{
+        height: 0px;
+        width: 0px;
+        opacity: 0.5;
+    }
+    100%{
+        height: 500px;
+        width: 500px;
+        opacity: 0;
+    }
+}
+
+.say-yes{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 40px;
+}
