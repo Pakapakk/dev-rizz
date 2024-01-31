@@ -1,25 +1,36 @@
 //click effect
-const buttons = document.querySelectorAll(".button-yes, .button-no");
-buttons.forEach(btn => {btn.addEventListener("click", function(e){
-    
-    let x = e.clientX - e.target.offsetLeft;
-    let y = e.clientY - e.target.offsetTop;
+function rippleEffect(event) {
+    const button = event.target;
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    const rect = button.getBoundingClientRect();
 
-    let ripples = document.createElement("span");
-    ripples.style.left = x + "px";
-    ripples.style.top = y + "px";
-    this.appendChild(ripples);
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
 
+    button.appendChild(ripple);
     setTimeout(() => {
-        ripples.remove()
-    }, 800);
-    })
-    
-});
+        ripple.remove();
+        const question = document.querySelector(".header");
+        const sayYes = document.querySelector(".say-yes");
+        const buttonGroup = document.querySelector(".button-group");
+        
+        question.innerHTML = "Let's Gooo 🫶🫶";
+        question.style.fontSize = "24px";
+        sayYes.innerHTML = "Happy Valentine ❤️";
+        sayYes.style.fontSize = "24px";
+        buttonGroup.style.display = "none";
+        confetti();
+        
+    }, 200);
+}
 
 //no-ecape
 const noBtn = document.querySelector(".button-no");
 noBtn.addEventListener("mouseover", () => {
+
     const maxI = window.innerWidth - noBtn.offsetWidth;
     const maxJ = window.innerHeight - noBtn.offsetHeight;
 
@@ -40,10 +51,13 @@ const question = document.querySelector(".header");
 const buttonGroup = document.querySelector(".button-group");
 const sayYes = document.querySelector(".say-yes")
 yesBtn.addEventListener("click", () => {
+    rippleEffect(event);
+    /* move this into section before ripple will be out
     question.innerHTML = "Let's Gooo 🫶🫶";
     question.style.fontSize = "24px";
     sayYes.innerHTML = "Happy Valentine ❤️";
     sayYes.style.fontSize = "24px";
     buttonGroup.style.display = "none";
     confetti();
+    */
 });
