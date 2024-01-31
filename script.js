@@ -17,7 +17,7 @@ function rippleEffect(event) {
         const sayYes = document.querySelector(".say-yes");
         const buttonGroup = document.querySelector(".button-group");
         
-        question.innerHTML = "Let's Gooo 🫶🫶";
+        question.innerHTML = "Let's Gooo ❤️❤️";
         question.style.fontSize = "24px";
         sayYes.innerHTML = "Happy Valentine ❤️";
         sayYes.style.fontSize = "24px";
